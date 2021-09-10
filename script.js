@@ -68,31 +68,37 @@ function zerar() {
 
 // PEGA O QUE FOI DIGITADO NO INPUT E CALCULA
 function calcular() {
+    const valueArray = separarValue()
     for (let i = 0; i < valueArray.length; i++) {
-        const valueArray = separarValue()
-        console.log(valueArray)
+        
         if (valueArray[i] == 'x' || valueArray[i] == '/') {
             if (valueArray[i] == 'x') {
                 const valueCalculado = (Number(valueArray[i - 1]) * Number(valueArray[i + 1]))
                 valueArray.splice(i - 1, 3, valueCalculado)
                 mostrarNaTela(arrayParaString(valueArray))
+                i = 0
             }
             if (valueArray[i] == '/') {
                 const valueCalculado = (Number(valueArray[i - 1]) / Number(valueArray[i + 1]))
                 valueArray.splice(i - 1, 3, valueCalculado)
                 mostrarNaTela(arrayParaString(valueArray))
+                i = 0
             }
         }
+    }
+    for (let i = 0; i < valueArray.length; i++) {
         if (valueArray[i] == '+' || valueArray[i] == '-') {
             if (valueArray[i] == '+') {
                 const valueCalculado = (Number(valueArray[i - 1]) + Number(valueArray[i + 1]))
                 valueArray.splice(i - 1, 3, valueCalculado)
                 mostrarNaTela(arrayParaString(valueArray))
+                i = 0
             }
             if (valueArray[i] == '-') {
                 const valueCalculado = (Number(valueArray[i - 1]) - Number(valueArray[i + 1]))
                 valueArray.splice(i - 1, 3, valueCalculado)
                 mostrarNaTela(arrayParaString(valueArray))
+                i = 0
             }
         }
     }
