@@ -25,11 +25,11 @@ function validarValor(possivelValor) {
 
     if(valueArray[0] == undefined) {
         if(possivelValor == '.' || 
-           possivelValor == '+' ||
-           possivelValor == '-' ||
-           possivelValor == 'x' ||
-           possivelValor == '/' ||
-           possivelValor == ')'   ) {
+           possivelValor == ' + ' ||
+           possivelValor == ' - ' ||
+           possivelValor == ' x ' ||
+           possivelValor == ' / ' ||
+           possivelValor == ' ) '   ) {
             return false
         } else {
             return true
@@ -82,13 +82,13 @@ function calcular() {
         
         if (valueArray[i] == 'x' || valueArray[i] == '/') {
             if (valueArray[i] == 'x') {
-                const valueCalculado = (Number(valueArray[i - 1]) * Number(valueArray[i + 1]))
+                const valueCalculado = (Number(valueArray[i - 1]) * Number(valueArray[i + 1])).toFixed(4)
                 valueArray.splice(i - 1, 3, valueCalculado)
                 mostrarNaTela(arrayParaString(valueArray))
                 i = 0
             }
             if (valueArray[i] == '/') {
-                const valueCalculado = (Number(valueArray[i - 1]) / Number(valueArray[i + 1]))
+                const valueCalculado = (Number(valueArray[i - 1]) / Number(valueArray[i + 1])).toFixed(4)
                 valueArray.splice(i - 1, 3, valueCalculado)
                 mostrarNaTela(arrayParaString(valueArray))
                 i = 0
