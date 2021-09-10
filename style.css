@@ -43,6 +43,7 @@ body, html {
 	outline: none;
 	padding-left: 10px;
 	padding-right: 10px;
+	text-align: right;
 }
 
 button {
