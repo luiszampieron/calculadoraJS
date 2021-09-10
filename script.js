@@ -4,20 +4,24 @@ function getValue() {
     return document.getElementById("screen").value
 }
 
-// SEPARAR VALOR EM UM ARRAY
+// SEPARAR VALOR EM UM ARRAY NUMEROS COMPLETOS
 function separarValue() {
+    return getValue().split(' ')
+}
+// SEPARAR VALOR EM UM ARRAY CADA INDICE UM NÚMERO
+function separarValueIndice() {
     return getValue().split('')
 }
 
 // TRANSFORMA O ARRAY EM UMA STRING
-function arrayParaString(valor) {
-    const valueString = valor.toString().replace(/,/g, '')
+function arrayParaString(valorArray) {
+    const valueString = valorArray.toString().replace(/,/g, '')
     return valueString
 }
 
 // VALIDAÇÃO SE O VALOR PODE SER ADICIONADO OU NÃO
 function validarValor(possivelValor) {
-    valueArray = separarValue()
+    valueArray = separarValueIndice()
 
     if(valueArray[0] == undefined) {
         if(possivelValor == '.' || 
@@ -44,10 +48,8 @@ function mostrarNaTela(valor) {
 // ADICIONAR UM NÚMERO OU CARACTER NA TELA (8, 6, (, ), .)
 function tela(valor) {
     if(validarValor(valor)) {
-        const valueArray = separarValue()
-        valueArray.push(valor)
-
-        mostrarNaTela(arrayParaString(valueArray))  
+        let resultado = document.getElementById("screen")
+        resultado.value += valor
     } else {
         alert('Ops, você não pode digitar isso aqui...')
     }
@@ -55,9 +57,16 @@ function tela(valor) {
 
 // APAGA ULTIMO ELEMENTO
 function apagar() {
-    const valueArray = separarValue()
-    
-    valueArray.pop()
+    const valueArray = separarValueIndice()
+
+    if(valueArray[valueArray.length - 1] == ' ') {
+        let contador = 0
+        while(contador < 3) {
+            valueArray.pop()
+            contador++
+        }
+    } else valueArray.pop()
+
     mostrarNaTela(arrayParaString(valueArray)) 
 }
 
