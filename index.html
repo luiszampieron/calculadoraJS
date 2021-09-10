@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="center">
+        <div class="conteiner">
+
+            <input autofocus type="text" class="screen" id="screen" value autocomplete="off">
+
+            <button class="abre" ></button>
+            <button class="fecha" ></button>
+            <button class="zerar" onclick="zerar()">C</button>
+            <button class="apagar" onclick="apagar()">⌫</button>
+
+            <button class="sete" onclick="tela(7)">7</button>
+            <button class="oito" onclick="tela(8)">8</button>
+            <button class="nove" onclick="tela(9)">9</button>
+            <button class="divisao" onclick="tela('/')">/</button>
+
+            <button class="quatro" onclick="tela(4)">4</button>
+            <button class="cinco" onclick="tela(5)">5</button>
+            <button class="seis" onclick="tela(6)">6</button>
+            <button class="multiplicacao" onclick="tela('x')">x</button>
+
+            <button class="um" onclick="tela(1)">1</button>
+            <button class="dois" onclick="tela(2)">2</button>
+            <button class="tres" onclick="tela(3)">3</button>
+            <button class="subtracao" onclick="tela('-')">-</button>
+
+            <button class="decimal" onclick="tela('.')">.</button>
+            <button class="zero" onclick="tela(0)">0</button>
+            <button class="igual" onclick="calcular()">=</button>
+            <button class="adicao" onclick="tela('+')">+</button>
+
+        </div>
+    </div>    
+</body>
+</html>
