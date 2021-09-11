@@ -23,7 +23,7 @@ function arrayToString(array) {
 }
 
 function treatResult(result) {
-    return result.replace(/([a-zA-Z])/g, '')
+    return result.replace(/([a-zA-Z])/g, '').replace(',', '.')
 }
 
 ////////// Validation //////////
