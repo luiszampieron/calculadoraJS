@@ -15,30 +15,30 @@
 
             <input autofocus type="text" class="screen" id="screen" value autocomplete="off">
 
-            <button class="abre" onclick="tela(' ( ')">(</button>
-            <button class="fecha" onclick="tela(' ) ')">)</button>
-            <button class="zerar" onclick="zerar()">C</button>
-            <button class="apagar" onclick="apagar()">⌫</button>
+            <button class="open_parentheses" onclick="addValueToResult(' ( ')">(</button>
+            <button class="close_parentheses" onclick="addValueToResult(' ) ')">)</button>
+            <button class="clear" onclick="clear()">C</button>
+            <button class="backspace" onclick="backspace()">⌫</button>
 
-            <button class="sete" onclick="tela(7)">7</button>
-            <button class="oito" onclick="tela(8)">8</button>
-            <button class="nove" onclick="tela(9)">9</button>
-            <button class="divisao" onclick="tela(' / ')">/</button>
+            <button class="seven" onclick="addValueToResult(7)">7</button>
+            <button class="eight" onclick="addValueToResult(8)">8</button>
+            <button class="nine" onclick="addValueToResult(9)">9</button>
+            <button class="divide" onclick="addValueToResult(' / ')">/</button>
 
-            <button class="quatro" onclick="tela(4)">4</button>
-            <button class="cinco" onclick="tela(5)">5</button>
-            <button class="seis" onclick="tela(6)">6</button>
-            <button class="multiplicacao" onclick="tela(' * ')">x</button>
+            <button class="four" onclick="addValueToResult(4)">4</button>
+            <button class="five" onclick="addValueToResult(5)">5</button>
+            <button class="six" onclick="addValueToResult(6)">6</button>
+            <button class="multiply" onclick="addValueToResult(' * ')">x</button>
 
-            <button class="um" onclick="tela(1)">1</button>
-            <button class="dois" onclick="tela(2)">2</button>
-            <button class="tres" onclick="tela(3)">3</button>
-            <button class="subtracao" onclick="tela(' - ')">-</button>
+            <button class="one" onclick="addValueToResult(1)">1</button>
+            <button class="two" onclick="addValueToResult(2)">2</button>
+            <button class="three" onclick="addValueToResult(3)">3</button>
+            <button class="subtract" onclick="addValueToResult(' - ')">-</button>
 
-            <button class="decimal" onclick="tela('.')">.</button>
-            <button class="zero" onclick="tela(0)">0</button>
-            <button class="igual" onclick="calcular()">=</button>
-            <button class="adicao" onclick="tela(' + ')">+</button>
+            <button class="decimal" onclick="addValueToResult('.')">.</button>
+            <button class="zero" onclick="addValueToResult(0)">0</button>
+            <button class="result" onclick="calculate()">=</button>
+            <button class="adicao" onclick="addValueToResult(' + ')">+</button>
 
         </div>
     </div>
