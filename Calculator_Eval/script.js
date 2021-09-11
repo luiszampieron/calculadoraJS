@@ -68,14 +68,6 @@ function isValidChar(char) {
 }
 
 ////////// Base Functions //////////
-function clearResult() {
-    screen.value = null
-}
-
-function setResult(result) {
-    screen.value = result
-}
-
 function addValueToResult(value) {
     if (isValidChar(value)) {
         screen.value += value
@@ -85,7 +77,7 @@ function addValueToResult(value) {
 function calculateResult() {
     result = treatResult(screen.value)
 
-    setResult(eval(result))
+    screen.value = eval(result)
 }
 
 function backspaceResult() {
