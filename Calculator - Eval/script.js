@@ -21,36 +21,36 @@ function arrayParaString(valorArray) {
 
 // FUNCTION COMPLEMENTAR DA VALIDAÇÃO
 function possivelValorOk(possivelValor) {
-    if(possivelValor == '.'   || 
-       possivelValor == ' + ' ||
-       possivelValor == ' * ' ||
-       possivelValor == ' / ' || 
-       possivelValor == ' - '   ) {
-           return true
-       } else return false
+    if (possivelValor == '.' ||
+        possivelValor == ' + ' ||
+        possivelValor == ' * ' ||
+        possivelValor == ' / ' ||
+        possivelValor == ' - ') {
+        return true
+    } else return false
 }
 
 // VALIDAÇÃO SE O VALOR PODE SER ADICIONADO OU NÃO
 function validarValor(possivelValor) {
     valueArray = separarValueIndice()
 
-    if(valueArray[0] == undefined) {
-        if(possivelValor == '.'   || 
-           possivelValor == ' + ' ||
-           possivelValor == ' * ' ||
-           possivelValor == ' / ' ||
-           possivelValor == ' ) '   ) {
+    if (valueArray[0] == undefined) {
+        if (possivelValor == '.' ||
+            possivelValor == ' + ' ||
+            possivelValor == ' * ' ||
+            possivelValor == ' / ' ||
+            possivelValor == ' ) ') {
             return false
         } else return true
     }
 
-    if((possivelValorOk(possivelValor) && valueArray[valueArray.length - 1] == '.') ||
-       (possivelValorOk(possivelValor) && valueArray[valueArray.length - 2] == '*') ||
-       (possivelValorOk(possivelValor) && valueArray[valueArray.length - 2] == '/') ||
-       (possivelValorOk(possivelValor) && valueArray[valueArray.length - 2] == '+') ||  
-       (possivelValorOk(possivelValor) && valueArray[valueArray.length - 2] == '-') ||
-       (possivelValor == ' ( '         && valueArray[valueArray.length - 2] == '(') ||
-       (possivelValor == ' ) '         && valueArray[valueArray.length - 2] == ')')   ) {
+    if ((possivelValorOk(possivelValor) && valueArray[valueArray.length - 1] == '.') ||
+        (possivelValorOk(possivelValor) && valueArray[valueArray.length - 2] == '*') ||
+        (possivelValorOk(possivelValor) && valueArray[valueArray.length - 2] == '/') ||
+        (possivelValorOk(possivelValor) && valueArray[valueArray.length - 2] == '+') ||
+        (possivelValorOk(possivelValor) && valueArray[valueArray.length - 2] == '-') ||
+        (possivelValor == ' ( ' && valueArray[valueArray.length - 2] == '(') ||
+        (possivelValor == ' ) ' && valueArray[valueArray.length - 2] == ')')) {
         return false
     }
 
@@ -65,7 +65,7 @@ function mostrarNaTela(valor) {
 
 // ADICIONAR UM NÚMERO OU CARACTER NA TELA (8, 6, (, ), .)
 function tela(valor) {
-    if(validarValor(valor)) {
+    if (validarValor(valor)) {
         let resultado = document.getElementById("screen")
         resultado.value += valor
     }
@@ -75,15 +75,15 @@ function tela(valor) {
 function apagar() {
     const valueArray = separarValueIndice()
 
-    if(valueArray[valueArray.length - 1] == ' ') {
+    if (valueArray[valueArray.length - 1] == ' ') {
         let contador = 0
-        while(contador < 3) {
+        while (contador < 3) {
             valueArray.pop()
             contador++
         }
     } else valueArray.pop()
 
-    mostrarNaTela(arrayParaString(valueArray)) 
+    mostrarNaTela(arrayParaString(valueArray))
 }
 
 // LIMPAR A TELA
