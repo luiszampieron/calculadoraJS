@@ -2,7 +2,7 @@ body, html {
     margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	background-color: #48CAE4;
+	background-color: #e44848;
 	font-family: Arial, Helvetica, sans-serif;
 }
 .center {
@@ -28,8 +28,8 @@ body, html {
 						'button button button button'
 						'button button button button';
 	
-	background-color: #ADE8F4;
-	box-shadow: #03045E 10px;
+	background-color: #f4adad;
+	box-shadow: #5e0303 10px;
 }
 
 .screen {
@@ -37,7 +37,7 @@ body, html {
 
 	border: none;
 	font-size: 30px;
-	background-color: #CAF0F8;
+	background-color: #f8caca;
 	color: #03045E;
 
 	outline: none;
@@ -47,7 +47,7 @@ body, html {
 }
 
 button {
-	background-color:#0096C7;
+	background-color:#c70000;
 	font-size: 15px;
 	cursor: pointer;
 	color:#ffffff;
@@ -58,7 +58,7 @@ button {
 
 button:hover,
 button:focus {
-    background: #0077B6;
+    background: #b60000;
 }
 
 button:active {
