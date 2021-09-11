@@ -23,9 +23,10 @@ function arrayToString(array) {
 }
 
 function treatResult(result) {
-    let alpha = result.replace(/([a-zA-Z])/g, '')
-    let comma = alpha.replace(',', '.')
-    let exponence = comma.replace('^', '**')
+    alpha = result.replace(/([a-zA-Z])/g, '')
+    alpha = alpha.replace('ç', '')
+    comma = alpha.replace(',', '.')
+    exponence = comma.replace('^', '**')
 
     return exponence
 }
