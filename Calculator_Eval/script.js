@@ -3,11 +3,6 @@ function getResult() {
     return document.getElementById("screen").value
 }
 
-function setResult(result) {
-    document.getElementById("screen").value = result
-    return getResult()
-}
-
 function separateResult() {
     return getResult().split(' ')
 }
@@ -69,7 +64,14 @@ function addValueToResult(value) {
     }
 }
 
-function backspace() {
+function calculateResult() {
+    result = getResult()
+    result = treatResult(result)
+
+    setResult(eval(result))
+}
+
+function backspaceResult() {
     const resultArray = separateResultByElement()
 
     if (resultArray[resultArray.length - 1] == ' ') {
@@ -83,13 +85,11 @@ function backspace() {
     setResult(arrayToString(resultArray))
 }
 
-function clear() {
+function clearResult() {
     document.getElementById("screen").value = null
 }
 
-function calculate() {
-    result = getResult()
-    result = treatResult(result)
-
-    setResult(eval(result))
+function setResult(result) {
+    document.getElementById("screen").value = result
+    return getResult()
 }
