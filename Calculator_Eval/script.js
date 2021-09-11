@@ -6,20 +6,16 @@ document.getElementById('screen').addEventListener('input', () => {
 })
 
 ////////// Utils //////////
-function getResult() {
-    return document.getElementById("screen").value
-}
-
 function getScreen() {
     return document.getElementById('screen')
 }
 
 function separateResult() {
-    return getResult().split(' ')
+    return screen.value.split(' ')
 }
 
 function separateResultByElement() {
-    return getResult().split('')
+    return screen.value.split('')
 }
 
 function arrayToString(array) {
@@ -74,7 +70,6 @@ function clearResult() {
 
 function setResult(result) {
     screen.value = result
-    return getResult()
 }
 
 function addValueToResult(value) {
@@ -84,8 +79,7 @@ function addValueToResult(value) {
 }
 
 function calculateResult() {
-    result = getResult()
-    result = treatResult(result)
+    result = treatResult(screen.value)
 
     setResult(eval(result))
 }
