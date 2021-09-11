@@ -1,6 +1,17 @@
+let screen = getScreen()
+
+////////// Events //////////
+document.getElementById('screen').addEventListener('input', () => {
+    screen.value = treatResult(screen.value)
+})
+
 ////////// Utils //////////
 function getResult() {
     return document.getElementById("screen").value
+}
+
+function getScreen() {
+    return document.getElementById('screen')
 }
 
 function separateResult() {
@@ -57,9 +68,17 @@ function isValidChar(char) {
 }
 
 ////////// Base Functions //////////
+function clearResult() {
+    screen.value = null
+}
+
+function setResult(result) {
+    screen.value = result
+    return getResult()
+}
+
 function addValueToResult(value) {
     if (isValidChar(value)) {
-        let screen = document.getElementById("screen")
         screen.value += value
     }
 }
@@ -83,13 +102,4 @@ function backspaceResult() {
     } else resultArray.pop()
 
     setResult(arrayToString(resultArray))
-}
-
-function clearResult() {
-    document.getElementById("screen").value = null
-}
-
-function setResult(result) {
-    document.getElementById("screen").value = result
-    return getResult()
 }
