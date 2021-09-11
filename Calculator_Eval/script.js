@@ -1,15 +1,11 @@
-let screen = getScreen()
+let screen = document.getElementById('screen')
 
 ////////// Events //////////
-document.getElementById('screen').addEventListener('input', () => {
+screen.addEventListener('input', () => {
     screen.value = treatResult(screen.value)
 })
 
 ////////// Utils //////////
-function getScreen() {
-    return document.getElementById('screen')
-}
-
 function separateResult() {
     return screen.value.split(' ')
 }
