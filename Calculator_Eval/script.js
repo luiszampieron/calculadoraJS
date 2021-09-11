@@ -91,5 +91,5 @@ function backspaceResult() {
         }
     } else resultArray.pop()
 
-    setResult(arrayToString(resultArray))
+    screen.value = arrayToString(resultArray)
 }
