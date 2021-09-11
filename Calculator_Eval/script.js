@@ -23,7 +23,11 @@ function arrayToString(array) {
 }
 
 function treatResult(result) {
-    return result.replace(/([a-zA-Z])/g, '').replace(',', '.')
+    let alpha = result.replace(/([a-zA-Z])/g, '')
+    let comma = alpha.replace(',', '.')
+    let exponence = comma.replace('^', '**')
+
+    return exponence
 }
 
 ////////// Validation //////////
