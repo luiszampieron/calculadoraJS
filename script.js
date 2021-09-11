@@ -26,7 +26,6 @@ function validarValor(possivelValor) {
     if(valueArray[0] == undefined) {
         if(possivelValor == '.' || 
            possivelValor == ' + ' ||
-           possivelValor == ' - ' ||
            possivelValor == ' x ' ||
            possivelValor == ' / ' ||
            possivelValor == ' ) '   ) {
