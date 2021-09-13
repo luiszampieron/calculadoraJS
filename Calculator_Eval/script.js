@@ -1,98 +1,92 @@
-// FUNCÕES ----------------------------------------
-// PEGAR VALOR DA TELA
-function getValue() {
-    return document.getElementById("screen").value
+let screen = document.getElementById('screen')
+
+////////// Events //////////
+screen.addEventListener('input', () => {
+    screen.value = treatResult(screen.value)
+})
+
+////////// Utils //////////
+function separateResult() {
+    return screen.value.split(' ')
 }
 
-// SEPARAR VALOR EM UM ARRAY NUMEROS COMPLETOS
-function separarValue() {
-    return getValue().split(' ')
-}
-// SEPARAR VALOR EM UM ARRAY CADA INDICE UM NÚMERO
-function separarValueIndice() {
-    return getValue().split('')
+function separateResultByElement() {
+    return screen.value.split('')
 }
 
-// TRANSFORMA O ARRAY EM UMA STRING
-function arrayParaString(valorArray) {
-    const valueString = valorArray.toString().replace(/,/g, '')
-    return valueString
+function arrayToString(array) {
+    return array.join('')
 }
 
-// FUNCTION COMPLEMENTAR DA VALIDAÇÃO
-function possivelValorOk(possivelValor) {
-    if (possivelValor == '.' ||
-        possivelValor == ' + ' ||
-        possivelValor == ' * ' ||
-        possivelValor == ' / ' ||
-        possivelValor == ' - ') {
+function treatResult(result) {
+    alpha = result.replace(/([a-zA-Z])/g, '')
+    alpha = alpha.replace('ç', '')
+    comma = alpha.replace(',', '.')
+    exponence = comma.replace('^', '**')
+
+    return exponence
+}
+
+////////// Validation //////////
+function isValidOperator(char) {
+    if (char == '.' ||
+        char == ' + ' ||
+        char == ' * ' ||
+        char == ' / ' ||
+        char == ' - ') {
         return true
     } else return false
 }
 
-// VALIDAÇÃO SE O VALOR PODE SER ADICIONADO OU NÃO
-function validarValor(possivelValor) {
-    valueArray = separarValueIndice()
+function isValidChar(char) {
+    resultArray = separateResultByElement()
 
-    if (valueArray[0] == undefined) {
-        if (possivelValor == '.' ||
-            possivelValor == ' + ' ||
-            possivelValor == ' * ' ||
-            possivelValor == ' / ' ||
-            possivelValor == ' ) ') {
+    if (resultArray[0] == undefined) {
+        if (char == '.' ||
+            char == ' + ' ||
+            char == ' * ' ||
+            char == ' / ' ||
+            char == ' ) ') {
             return false
         } else return true
     }
 
-    if ((possivelValorOk(possivelValor) && valueArray[valueArray.length - 1] == '.') ||
-        (possivelValorOk(possivelValor) && valueArray[valueArray.length - 2] == '*') ||
-        (possivelValorOk(possivelValor) && valueArray[valueArray.length - 2] == '/') ||
-        (possivelValorOk(possivelValor) && valueArray[valueArray.length - 2] == '+') ||
-        (possivelValorOk(possivelValor) && valueArray[valueArray.length - 2] == '-') ||
-        (possivelValor == ' ( ' && valueArray[valueArray.length - 2] == '(') ||
-        (possivelValor == ' ) ' && valueArray[valueArray.length - 2] == ')')) {
+    if ((isValidOperator(char) && resultArray[resultArray.length - 1] == '.') ||
+        (isValidOperator(char) && resultArray[resultArray.length - 2] == '*') ||
+        (isValidOperator(char) && resultArray[resultArray.length - 2] == '/') ||
+        (isValidOperator(char) && resultArray[resultArray.length - 2] == '+') ||
+        (isValidOperator(char) && resultArray[resultArray.length - 2] == '-') ||
+        (char == ' ( ' && resultArray[resultArray.length - 2] == '(') ||
+        (char == ' ) ' && resultArray[resultArray.length - 2] == ')')) {
         return false
     }
 
     return true
 }
 
-// MOSTRAR 'X' NA TELA
-function mostrarNaTela(valor) {
-    document.getElementById("screen").value = valor
-    return getValue()
-}
-
-// ADICIONAR UM NÚMERO OU CARACTER NA TELA (8, 6, (, ), .)
-function tela(valor) {
-    if (validarValor(valor)) {
-        let resultado = document.getElementById("screen")
-        resultado.value += valor
+////////// Base Functions //////////
+function addValueToResult(value) {
+    if (isValidChar(value)) {
+        screen.value += value
     }
 }
 
-// APAGA ULTIMO ELEMENTO
-function apagar() {
-    const valueArray = separarValueIndice()
+function calculateResult() {
+    result = treatResult(screen.value)
 
-    if (valueArray[valueArray.length - 1] == ' ') {
-        let contador = 0
-        while (contador < 3) {
-            valueArray.pop()
-            contador++
+    screen.value = eval(result)
+}
+
+function backspaceResult() {
+    const resultArray = separateResultByElement()
+
+    if (resultArray[resultArray.length - 1] == ' ') {
+        let counter = 0
+        while (counter < 3) {
+            resultArray.pop()
+            counter++
         }
-    } else valueArray.pop()
+    } else resultArray.pop()
 
-    mostrarNaTela(arrayParaString(valueArray))
-}
-
-// LIMPAR A TELA
-function zerar() {
-    document.getElementById("screen").value = null
-}
-
-// PEGA O QUE FOI DIGITADO NO INPUT E CALCULA
-function calcular() {
-    value = getValue()
-    mostrarNaTela(eval(value))
+    screen.value = arrayToString(resultArray)
 }
