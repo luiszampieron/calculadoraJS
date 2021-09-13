@@ -5,6 +5,13 @@ screen.addEventListener('input', () => {
     screen.value = treatResult(screen.value)
 })
 
+document.getElementById('multiply').addEventListener('dblclick', () => {
+    backspaceResult()
+    if (isValidChar('^')){
+        addValueToResult(' ^ ')
+    }
+})
+
 ////////// Utils //////////
 function separateResult() {
     return screen.value.split(' ')
@@ -33,7 +40,8 @@ function isValidOperator(char) {
         char == ' + ' ||
         char == ' * ' ||
         char == ' / ' ||
-        char == ' - ') {
+        char == ' - ' ||
+        char == '^') {
         return true
     } else return false
 }
@@ -56,6 +64,7 @@ function isValidChar(char) {
         (isValidOperator(char) && resultArray[resultArray.length - 2] == '/') ||
         (isValidOperator(char) && resultArray[resultArray.length - 2] == '+') ||
         (isValidOperator(char) && resultArray[resultArray.length - 2] == '-') ||
+        (isValidOperator(char) && resultArray[resultArray.length - 2] == '^') ||
         (char == ' ( ' && resultArray[resultArray.length - 2] == '(') ||
         (char == ' ) ' && resultArray[resultArray.length - 2] == ')')) {
         return false

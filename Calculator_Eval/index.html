@@ -15,30 +15,30 @@
 
             <input autofocus type="text" class="screen" id="screen" value autocomplete="off" disabled>
 
-            <button onclick="addValueToResult(' ( ')">(</button>
-            <button onclick="addValueToResult(' ) ')">)</button>
-            <button onclick="screen.value = null">C</button>
-            <button onclick="backspaceResult()">⌫</button>
+            <button id="open_parantheses" onclick="addValueToResult(' ( ')">(</button>
+            <button id="close_parentheses" onclick="addValueToResult(' ) ')">)</button>
+            <button id="clear" onclick="screen.value = null">C</button>
+            <button id="backspace" onclick="backspaceResult()">⌫</button>
 
-            <button onclick="addValueToResult(7)">7</button>
-            <button onclick="addValueToResult(8)">8</button>
-            <button onclick="addValueToResult(9)">9</button>
-            <button onclick="addValueToResult(' / ')">/</button>
+            <button id="seven" onclick="addValueToResult(7)">7</button>
+            <button id="eight" onclick="addValueToResult(8)">8</button>
+            <button id="nine" onclick="addValueToResult(9)">9</button>
+            <button id="divide" onclick="addValueToResult(' / ')">/</button>
 
-            <button onclick="addValueToResult(4)">4</button>
-            <button onclick="addValueToResult(5)">5</button>
-            <button onclick="addValueToResult(6)">6</button>
-            <button onclick="addValueToResult(' * ')">x</button>
+            <button id="four" onclick="addValueToResult(4)">4</button>
+            <button id="five" onclick="addValueToResult(5)">5</button>
+            <button id="six" onclick="addValueToResult(6)">6</button>
+            <button id="multiply" onclick="addValueToResult(' * ')">x</button>
 
-            <button onclick="addValueToResult(1)">1</button>
-            <button onclick="addValueToResult(2)">2</button>
-            <button onclick="addValueToResult(3)">3</button>
-            <button onclick="addValueToResult(' - ')">-</button>
+            <button id="one" onclick="addValueToResult(1)">1</button>
+            <button id="two" onclick="addValueToResult(2)">2</button>
+            <button id="three" onclick="addValueToResult(3)">3</button>
+            <button id="subtract" onclick="addValueToResult(' - ')">-</button>
 
-            <button onclick="addValueToResult('.')">.</button>
-            <button onclick="addValueToResult(0)">0</button>
-            <button onclick="calculateResult()">=</button>
-            <button onclick="addValueToResult(' + ')">+</button>
+            <button id="decimal" onclick="addValueToResult('.')">.</button>
+            <button id="zero" onclick="addValueToResult(0)">0</button>
+            <button id="result" onclick="calculateResult()">=</button>
+            <button id="sum" onclick="addValueToResult(' + ')">+</button>
 
         </div>
     </div>
